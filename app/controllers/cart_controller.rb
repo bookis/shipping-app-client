@@ -7,5 +7,6 @@ class CartController < ApplicationController
   end
 
   def show
+    raise
   end
 end

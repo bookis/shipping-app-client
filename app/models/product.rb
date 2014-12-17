@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  has_many :items, class_name: "LineItem"
   validates :name, :price_cents, :weight, presence: true
   validates :price_cents, :weight, numericality: {greater_than: 0}
   before_create :set_canonical_name
