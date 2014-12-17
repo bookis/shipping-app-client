@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.1.2"
-
+gem "excon"
 gem "dotenv-rails"
 gem 'rails', '4.1.8'
 gem 'pg'
