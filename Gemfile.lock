@@ -278,6 +278,7 @@ DEPENDENCIES
   httparty
   jquery-rails
   mini_magick
+  monetize
   money-rails
   pg
   puma

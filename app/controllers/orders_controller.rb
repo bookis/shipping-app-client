@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
 
   def show
+    response = HTTParty.get("http://localhost:3000/shipments/search?country=US&city=Seattle&state=WA&zip=98119").parsed_response
+    puts response.inspect
     @order = Order.find_by(number: params[:number])
   end
 

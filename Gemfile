@@ -17,6 +17,7 @@ gem "mini_magick"
 gem 'puma'
 gem "rails_12factor", group: :production
 gem "httparty"
+gem 'monetize'
 
 group :development, :test do
   gem "rspec-rails"
