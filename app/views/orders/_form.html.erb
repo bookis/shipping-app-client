@@ -35,7 +35,9 @@
   <div class='col-lg-5'>
     <h4 class='brand'>Shipping Option</h4>
     <div class='shipping-options well'>
-      <span class='brand'>UPS: <%= @country %><%= @shipping_info %></span>
+      <% @ups_shipping_info.each do |shipment| %>
+        <span class='brand'><%= shipment[0] %>: $<%= shipment[1] %></span><br>
+      <% end %>
     </div>
     <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
   </div>
