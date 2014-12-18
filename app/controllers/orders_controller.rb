@@ -22,10 +22,10 @@ class OrdersController < ApplicationController
       # http://localhost:3000/quotes/search?country=US&state=MD&city=Baltimore&zip=21231
 
       @shipping_info = request.parsed_response
-      raise
 
+      # redirect_to cart_path
 
-      # redirect_to order_path(order_form.order.number)
+      redirect_to order_path(order_form.order.number)
     end
 
 

@@ -1,15 +1,53 @@
 <h1 class='brand'>Cart</h1>
 
 <%= render current_order %>
+
+<% if current_order.address.present? %>
 <%= render "orders/form" %>
+<% else %>
+<div class='new-address'>
+  <div class='col-lg-4'>
+    <h4 class='brand'>Address</h4>
+    <%= form_for Address.new do |address| %>
+    <div class='form-group'>
+      <%= address.label :street do %>
+      Street Address
+      <%= address.text_field :street, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= address.label :number do %>
+      City
+      <%= address.text_field :city, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= address.label :number do %>
+      State
+      <%= address.text_field :state, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= address.label :number do %>
+      Zip
+      <%= address.text_field :postal_code, class: "form-control" %>
+      <% end %>
+    </div>
+    <%= address.submit "Update Address", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
+<% end %>
 
 <table class='table'>
   <tbody>
-  <tr>
-    <td width="99%" colspan=2></td>
-    <td class='brand'>Total:<%= current_order.total.format %></td>
-  </tr>
-</tbody>
+    <tr>
+      <td width="99%" colspan=2></td>
+      <td class='brand'>Total:<%= current_order.total.format %></td>
+    </tr>
+  </tbody>
 </table>
-
 <%= link_to "Checkout", "", class: "checkout btn btn-default btn-block" %>
