@@ -1,6 +1,6 @@
 module CartHelper
 
   def convert_to_dollars(cents)
-    cents.to_f / 100
+    "%.2f"%(cents.to_f / 100)
   end
 end
