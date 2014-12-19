@@ -35,8 +35,9 @@
     <div class='col-lg-5'>
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
-        <span class='brand'>:( Please implement me<%= @estimate %></span>
+        <span class='brand'><%= @estimate %></span>
       </div>
+      <%#= raise %>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
     </div>
 
