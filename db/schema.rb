@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211230410) do
+ActiveRecord::Schema.define(version: 20141219183902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141211230410) do
     t.string   "postal_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "shipment_id"
   end
 
   create_table "credit_cards", force: true do |t|
@@ -66,5 +67,12 @@ ActiveRecord::Schema.define(version: 20141211230410) do
   end
 
   add_index "products", ["canonical_name"], name: "index_products_on_canonical_name", using: :btree
+
+  create_table "shipments", force: true do |t|
+    t.string   "type"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
