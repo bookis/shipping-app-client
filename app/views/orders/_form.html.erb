@@ -36,7 +36,15 @@
     <h4 class='brand'>Shipping Option</h4>
     <div class='shipping-options well'>
       <% @ups_shipping_info.each do |shipment| %>
-        <span class='brand'><%= shipment[0] %>: $<%= shipment[1] %></span><br>
+        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
+      <% end %>
+
+      <% @usps_shipping_info.each do |shipment| %>
+        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
+      <% end %>
+
+      <% @fedex_shipping_info.each do |shipment| %>
+        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
       <% end %>
     </div>
     <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
