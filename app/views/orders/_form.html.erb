@@ -35,17 +35,12 @@
   <div class='col-lg-5'>
     <h4 class='brand'>Shipping Option</h4>
     <div class='shipping-options well'>
-      <% @ups_shipping_info.each do |shipment| %>
-        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
-      <% end %>
 
-      <% @usps_shipping_info.each do |shipment| %>
-        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
-      <% end %>
+      <span class='brand'><%= radio_button_tag(:shipping, "@ups_shipping_info[0][0]") %><%= @ups_shipping_info[0][0] %>: $<%= convert_to_dollars(@ups_shipping_info[0][1]) %></span><br>
+      <span class='brand'><%= radio_button_tag(:shipping, "@fedex_shipping_info[0][0]") %><%= @fedex_shipping_info[0][0] %>: $<%= convert_to_dollars(@fedex_shipping_info[0][1]) %></span><br>
+      <span class='brand'><%= radio_button_tag(:shipping, "@usps_shipping_info[0][0]") %><%= @fedex_shipping_info[0][0] %>: $<%= convert_to_dollars(@fedex_shipping_info[0][1]) %></span><br>
+      <span class='brand'><%= radio_button_tag(:shipping, "@usps_shipping_info[4][0]") %><%= @usps_shipping_info[4][0] %>: $<%= convert_to_dollars(@usps_shipping_info[4][1]) %></span><br>
 
-      <% @fedex_shipping_info.each do |shipment| %>
-        <span class='brand'><%= shipment[0] %>: $<%= convert_to_dollars(shipment[1]) %></span><br>
-      <% end %>
     </div>
     <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
   </div>
