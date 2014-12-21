@@ -1,9 +1,11 @@
 <div class='row new-order'>
   <hr>
+
   <div class="col-lg-2">
     <h4 class='brand'>Address</h4>
     <%= render current_order.address %>
   </div>
+
   <%= form_for current_order do |f| %>
     <div class='col-lg-5'>
       <h4 class='brand'>Credit Card</h4>
@@ -36,37 +38,9 @@
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
         <span class='brand'>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Option one is this and that&mdash;be sure to include why it's great
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              Option two can be something else and selecting it will deselect option one
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Option one is this and that&mdash;be sure to include why it's great
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              Option two can be something else and selecting it will deselect option one
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Option one is this and that&mdash;be sure to include why it's great
-            </label>
-          </div>
-    
+            <%= @estimate.cost%>
+            <%= @estimate.service %>
+            <%= @estimate.delivery %>
         </span>
       </div>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>

@@ -18,6 +18,12 @@ gem 'puma'
 gem "rails_12factor", group: :production
 gem "httparty"
 gem 'monetize'
+gem 'bootstrap_form'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
 group :development, :test do
   gem "rspec-rails"
