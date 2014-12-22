@@ -12,16 +12,23 @@ class Estimate
 
     @response.keys.each_with_index do |key, j|
       @response[key].each do |response|
-        @service[index] = response[0]
-        @cost[index] = Money.new(response[1])
         if response[2].nil?
-          @delivery[index] = response[2]
+          @delivery[index] = nil
+          @service[index] = nil
+          @cost[index] = nil
         else
           @delivery[index] = response[2].to_datetime.strftime('%A, %b %e')
+          @service[index] = response[0]
+          @cost[index] = Money.new(response[1])
         end
+
         index +=1
       end
     end
+    
+    @delivery.compact!
+    @service.compact!
+    @cost.compact!
   end
 
 end
