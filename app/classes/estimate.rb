@@ -4,10 +4,24 @@ class Estimate
 
   def initialize(params)
     @response = HTTParty.get("http://localhost:3000/shipments/search?country=#{params[:country]}&city=#{params[:city]}&state=#{params[:state]}&zip=#{params[:zip]}").parsed_response
-    @cost = Money.new(@response["ups"]["rates"].first["total_price"])
-    @service = @response["ups"]["rates"].first["service_name"]
-    raise
-    @delivery = @response["ups"]["rates"].first["delivery_range"].first.to_datetime.strftime('%A, %b %e')
+    @cost = []
+    @service = []
+    @delivery = []
+
+    index = 0
+
+    @response.keys.each_with_index do |key, j|
+      @response[key].each do |response|
+        @service[index] = response[0]
+        @cost[index] = Money.new(response[1])
+        if response[2].nil?
+          @delivery[index] = response[2]
+        else
+          @delivery[index] = response[2].to_datetime.strftime('%A, %b %e')
+        end
+        index +=1
+      end
+    end
   end
 
 end

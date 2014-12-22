@@ -38,9 +38,27 @@
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
         <span class='brand'>
-            <%= @estimate.cost%>
-            <%= @estimate.service %>
-            <%= @estimate.delivery %>
+          <div class = "radio">
+            <form action="">
+              <% 5.times do |i| %>
+                <!-- &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" name="shipping_cost" value="$<%= @estimate.cost[i]%>">$<%= @estimate.cost[i]%>
+                &nbsp&nbsp
+                <%= @estimate.service[i] %> &nbsp&nbsp
+                get it by <%= @estimate.delivery[i] %>
+ -->
+
+                <%= f.radio_button :shipping_cost, @estimate.cost[i]%>
+
+                $<%= @estimate.cost[i]%> &nbsp&nbsp
+                <%= @estimate.service[i] %> &nbsp&nbsp
+                get it by <%= @estimate.delivery[i] %>
+
+                <br>
+                <br>
+              <% end %>
+            </form>
+          </div>
         </span>
       </div>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
