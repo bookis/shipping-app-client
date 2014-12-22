@@ -10,7 +10,8 @@
   <tbody>
   <tr>
     <td width="99%" colspan=2></td>
-    <td class='brand'>Total:<%= @order.total.format %></td>
+    <!-- dynamically add the shipping cost to the total - use ajax??? -->
+    <td class='brand'>Total:<%=@order.total.format %></td>
   </tr>
 </tbody>
 </table>

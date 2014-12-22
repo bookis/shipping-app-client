@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   before_create :set_number
 
   def total
-    Money.new items.sum(:total_cents)
+    Money.new items.sum(:total_cents) 
   end
 
   private
