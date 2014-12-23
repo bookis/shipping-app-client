@@ -17,10 +17,17 @@ gem "mini_magick"
 gem 'puma'
 gem "rails_12factor", group: :production
 gem "httparty"
+gem "active_shipping"
+gem "activemerchant"
 
 group :development, :test do
   gem "rspec-rails"
   gem "guard-rspec"
   gem "factory_girl_rails"
   gem "capybara"
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
