@@ -35,7 +35,25 @@
     <div class='col-lg-5'>
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
-        <span class='brand'>:( Please implement me</span>
+        <span class='brand'>
+          <% if @error %>
+            We could not get shipping rates for your purchase because
+            <%= @error %>
+          <% else %>
+            <ul>
+              <% @rates.each do |rate| %>
+                <li>
+                  <%= rate[0] %>, $<%= Money.new(rate[1]) %>
+                  <% if rate[2] %>
+                    <% d = DateTime.parse(rate[2]).strftime('%b. %e, %Y') %>
+                    <%= "- Delivery on #{d}" %>
+                  <% end %>
+                  <br>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </span>
       </div>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
     </div>
