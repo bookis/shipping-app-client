@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def update
     order_form = OrderForm.new(current_order, params[:order])
-    raise
+
     redirect_to order_path(order_form.order.number)
     if order_form.save
       session[:order_number] = nil

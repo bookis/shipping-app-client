@@ -1,4 +1,5 @@
 class Shipment < ActiveRecord::Base
-  monetize :costs
-  has_an :address
+  monetize :cost  
+  has_one :address
+  belongs_to :order
 end

@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   has_many :items, class_name: "LineItem"
   has_one :address
   has_one :credit_card
+  has_one :shipment
   validates :number, uniqueness: true
   before_create :set_number
 
