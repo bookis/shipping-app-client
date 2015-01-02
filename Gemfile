@@ -7,6 +7,7 @@ group :development do
   gem "binding_of_caller"
 end
 
+gem 'carrierwave'
 gem "figaro"
 gem "httparty"
 gem "excon"
