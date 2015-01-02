@@ -15,7 +15,7 @@ class CartController < ApplicationController
 
       # FOR UPS
       # could do multi-line concatenation
-      @ups_request = HTTParty.get("http://localhost:3000/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=UPS")
+      @ups_request = HTTParty.get("http://ship-api.herokuapp.com/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=UPS")
       # http://localhost:3000/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=MD&city=Baltimore&zip=21231&carrier=UPS
 
       @ups_shipping_info = @ups_request.parsed_response
@@ -27,15 +27,15 @@ class CartController < ApplicationController
 
       # FOR USPS
 
-      @usps_request = HTTParty.get("http://localhost:3000/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=USPS")
+      @usps_request = HTTParty.get("http://ship-api.herokuapp.com/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=USPS")
       @usps_shipping_info = @usps_request.parsed_response
 
       # FOR FEDEX
 
-      @fedex_request = HTTParty.get("http://localhost:3000/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=FEDEX")
+      @fedex_request = HTTParty.get("http://ship-api.herokuapp.com/quotes/search?origincountry=US&originstate=WA&origincity=Seattle&originzip=98121&country=US&state=#{@state}&city=#{@city}&zip=#{@zip}&carrier=FEDEX")
       @fedex_shipping_info = @fedex_request.parsed_response
 
-      
+
     end
   end
 end
